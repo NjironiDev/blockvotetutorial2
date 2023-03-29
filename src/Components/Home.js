@@ -1,6 +1,4 @@
-import { Tab } from "bootstrap";
 import React, { useEffect, useState } from "react";
-import { Table, Container, Button } from "react-bootstrap";
 
 const Home = (props) => {
   const [promptList, changePromptList] = useState([]);
@@ -14,8 +12,8 @@ const Home = (props) => {
   }, []);
 
   return (
-    <Container>
-      <Table style={{ margin: "5vh" }} striped bordered hover>
+    <div className="home">
+      <table>
         <thead>
           <tr>
             <th>#</th>
@@ -31,16 +29,16 @@ const Home = (props) => {
                 <td>{el}</td>
                 <td>
                   {" "}
-                  <Button onClick={() => props.changeCandidates(el)}>
+                  <button onClick={() => props.changeCandidates(el)}>
                     Go to Poll
-                  </Button>
+                  </button>
                 </td>
               </tr>
             );
           })}
         </tbody>
-      </Table>
-    </Container>
+      </table>
+    </div>
   );
 };
 

@@ -8,6 +8,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 input {
@@ -16,7 +17,7 @@ input {
   border-radius: 5px;
   margin-bottom: 10px;
   background-color: #121212;
-  color: #a5abbd;
+  color: rgb(163 163 163 / 100%);
   width: 100%;
   transition: all 0.3s ease;
 }
@@ -30,7 +31,8 @@ label {
 
 .new-poll {
   background-color: #090a0b;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
+  padding: 2rem;
 }
 
 .poll-form {
@@ -52,35 +54,132 @@ form {
   gap: 20px;
 }
 
-.poll-form-title {
-  color: #f3f3f3;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 10px;
-}
-
 .bg {
   position: absolute;
+  -webkit-user-drag: none;
   opacity: 0.5;
   right: 0;
 }
 
 input[type="text"]:hover,
 input[type="password"]:hover {
-  box-shadow: 0 0 5px rgba(252, 252, 252, 0.5);
-  /* box shadow lineare gradiant */
-  box-shadow: 0 0 5px rgba(var(--primary-color), 0.5);
+  box-shadow: 0 0 6px #ff6b9c50;
 }
 
-input[type="text"]:active,
-input[type="password"]:active {
-  box-shadow: 0 0 5px rgba(252, 252, 252, 0.5);
+input[type="text"]:focus,
+input[type="password"]:focus {
+  border: 0.2px solid #ff6b9c50;
 }
 
 .poll-form-title {
-  color: #f3f3f3;
-  font-size: 40px;
-  font-weight: 500;
+  font-size: 50px;
+  font-weight: 700;
   margin-bottom: 10px;
   text-align: center;
+  color: rgb(250 250 250);
+}
+
+.poll-form-subtitle {
+  background: linear-gradient(122.25deg, #ff4c88 12.16%, #ff8a63 70.98%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.form-button {
+  background-color: transparent;
+  color: rgb(250 250 250);
+  border: 1px solid #fff;
+  padding: 10px 40px;
+  border-radius: 10px;
+  align-self: start;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  padding: 10px 0;
+}
+
+nav {
+  display: flex;
+  background-color: #101313;
+  border-bottom: 0.2px solid #e5e7eb0c;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a:hover {
+  color: #ff6b9c;
+}
+
+li {
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgb(250 250 250);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.logo {
+  width: 60px;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  background-color: #090a0b;
+  color: #fff;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+table {
+  width: 90%;
+  border-radius: 30px;
+  border-style: hidden;
+  margin: 20px auto;
+  border: 1px solid #cccccc36;
+  padding: 0 10px;
+  background-color: #131313;
+}
+
+th {
+  color: rgb(250 250 250);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 10px 0;
+}
+
+td {
+  padding: 10px 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: rgb(250 250 250);
+}
+
+table th:not(:last-child),
+table td:not(:last-child) {
+  border-right: 1px solid #cccccc36;
+}
+
+.form-button:hover {
+  color: #000;
+  background-color: rgb(250 250 250);
 }

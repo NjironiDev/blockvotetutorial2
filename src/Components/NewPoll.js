@@ -38,8 +38,10 @@ const NewPoll = (props) => {
   return (
     <div className="new-poll">
       <img src={Glow} alt="logo" className="bg" />
+      <p className="poll-form-title">
+        Create a <span className="poll-form-subtitle">New Poll</span>
+      </p>
       <div className="poll-form">
-        <h1 className="poll-form-title">Create a New Poll</h1>
         <form>
           <div className="form-flex">
             <label htmlFor="Candidate 1 Name">Candidate 1 Name</label>
@@ -82,10 +84,8 @@ const NewPoll = (props) => {
             <label htmlFor="Prompt">Prompt</label>
             <input type="text" id="Prompt" ref={promptRef} required />
           </div>
-          <div className="form-flex button-grid">
-            <div class="buttons-grid-item">
-              <button class="gradient-button gradient-button-6">Button</button>
-            </div>
+          <div className="form-flex">
+            <button class="form-button">Create</button>
           </div>
         </form>
       </div>
