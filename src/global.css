@@ -33,6 +33,7 @@ label {
   background-color: #090a0b;
   padding: 0 20px 20px 20px;
   padding: 2rem;
+  min-height: 100vh;
 }
 
 .poll-form {
@@ -59,6 +60,16 @@ form {
   -webkit-user-drag: none;
   opacity: 0.5;
   right: 0;
+}
+
+.bg1 {
+  position: absolute;
+  -webkit-user-drag: none;
+  opacity: 0.5;
+  /* center */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 input[type="text"]:hover,
@@ -96,6 +107,25 @@ input[type="password"]:focus {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
+}
+
+.vote-button {
+  background-color: #1f1e24;
+
+  color: rgb(250 250 250);
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  align-self: start;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.vote-button:hover {
+  color: #fff;
+  background-color: #1c1e27;
 }
 
 .nav-container {
@@ -162,16 +192,17 @@ table {
 
 th {
   color: rgb(250 250 250);
-  font-size: 16px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 700;
   padding: 10px 0;
 }
 
 td {
   padding: 10px 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: rgb(250 250 250);
+  text-align: center;
 }
 
 table th:not(:last-child),
@@ -182,4 +213,74 @@ table td:not(:last-child) {
 .form-button:hover {
   color: #000;
   background-color: rgb(250 250 250);
+}
+
+.poll-button {
+  background-color: #ff8a63;
+  padding: 10px 40px;
+  border-radius: 10px;
+  border: 0;
+  align-self: start;
+  font-size: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #fff;
+}
+
+.poll-button:hover {
+  background-color: #ff6b9c;
+  color: #fff;
+}
+
+.polling-station {
+  background-color: #090a0b;
+  color: #fff;
+  overflow: hidden;
+}
+
+.polling-station-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 20px;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  gap: 20px;
+}
+
+.candidate {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  background: #101313;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.poll-img {
+  max-width: 300px;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.prompt {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vote-count {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.vote-button:active {
+  scale: 0.9;
 }

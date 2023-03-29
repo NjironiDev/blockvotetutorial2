@@ -29,7 +29,10 @@ const Home = (props) => {
                 <td>{el}</td>
                 <td>
                   {" "}
-                  <button onClick={() => props.changeCandidates(el)}>
+                  <button
+                    className="poll-button"
+                    onClick={() => props.changeCandidates(el)}
+                  >
                     Go to Poll
                   </button>
                 </td>

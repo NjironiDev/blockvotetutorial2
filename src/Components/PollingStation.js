@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import LoadingCircles from "../assets/loadingcircles.svg";
+import Glow from "../assets/Glow.png";
 
 const PollingStation = (props) => {
   const [candidate1URL, changeCandidate1Url] = useState(LoadingCircles);
@@ -70,119 +71,54 @@ const PollingStation = (props) => {
   };
 
   return (
-    <Container>
-      <Row>
-        <Col className='jutify-content-center d-flex'>
-          <Container>
-            <Row style={{ marginTop: "5vh", backgroundColor: "#c4c4c4" }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  padding: "3vw",
-                }}
-              >
-                <img
-                  style={{
-                    height: "35vh",
-                    width: "20vw",
-                  }}
-                  src={candidate1URL}
-                ></img>
-              </div>
-            </Row>
-            {showresults ? (
-              <Row
-                className='justify-content-center d-flex'
-                style={{ marginTop: "5vh" }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "8vw",
-                    padding: "10px",
-                    backgroundColor: "#c4c4c4",
-                  }}
-                >
-                  {candidate1Votes}
-                </div>
-              </Row>
-            ) : null}
-            <Row
-              style={{ marginTop: "5vh" }}
-              className='justify-content-center d-flex'
-            >
-              <Button disabled={buttonStatus} onClick={() => addVote(0)}>
-                Vote
-              </Button>
-            </Row>
-          </Container>
-        </Col>
-        <Col className='justify-content-center d-flex align-items-center'>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              backgroundColor: "#c4c4c4",
-              height: "20vh",
-              alignItems: "center",
-              padding: "2vw",
-              textAlign: "center",
-            }}
-          >
-            {prompt}
+    <div className="polling-station">
+      <div className="polling-station-container">
+        <div className="candidate">
+          <div>
+            <img className="poll-img" src={candidate1URL} />
           </div>
-        </Col>
-        <Col className='jutify-content-center d-flex'>
-          <Container>
-            <Row style={{ marginTop: "5vh", backgroundColor: "#c4c4c4" }}>
-              <div
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  padding: "3vw",
-                }}
-              >
-                <img
-                  style={{
-                    height: "35vh",
-                    width: "20vw",
-                  }}
-                  src={candidate2URL}
-                ></img>
-              </div>
-            </Row>
-            {showresults ? (
-              <Row
-                className='justify-content-center d-flex'
-                style={{ marginTop: "5vh" }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    fontSize: "8vw",
-                    padding: "10px",
-                    backgroundColor: "#c4c4c4",
-                  }}
-                >
-                  {candidate2Votes}
-                </div>
-              </Row>
-            ) : null}
-            <Row
-              style={{ marginTop: "5vh" }}
-              className='justify-content-center d-flex'
+          {showresults ? (
+            <div>
+              <div className="vote-count">{candidate1Votes}</div>
+            </div>
+          ) : null}
+          <div>
+            <button
+              className="vote-button"
+              disabled={buttonStatus}
+              onClick={() => addVote(0)}
             >
-              <Button disabled={buttonStatus} onClick={() => addVote(1)}>
+              Vote
+            </button>
+          </div>
+        </div>
+        <div>
+          <div className="prompt">{prompt}</div>
+        </div>
+        <div>
+          <div className="candidate">
+            <div>
+              <img className="poll-img" src={candidate2URL} />
+            </div>
+            {showresults ? (
+              <div>
+                <div className="vote-count">{candidate2Votes}</div>
+              </div>
+            ) : null}
+            <div>
+              <button
+                className="vote-button"
+                disabled={buttonStatus}
+                onClick={() => addVote(1)}
+              >
                 Vote
-              </Button>
-            </Row>
-          </Container>
-        </Col>
-      </Row>
-    </Container>
+              </button>
+            </div>
+          </div>
+        </div>
+        <img src={Glow} alt="logo" className="bg1" />
+      </div>
+    </div>
   );
 };
 

@@ -1,5 +1,7 @@
 import React, { useRef, useState } from "react";
 import Glow from "../assets/Glow.png";
+import eclipse from "../assets/eclipse.svg";
+import toast, { Toaster } from "react-hot-toast";
 
 const NewPoll = (props) => {
   const candidateName1 = useRef();
@@ -11,9 +13,12 @@ const NewPoll = (props) => {
   const promptRef = useRef();
 
   const [disableButton, changeDisable] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const sendToBlockChain = async () => {
     changeDisable(true);
+    setIsLoading(true);
+
     await window.contract.addUrl({
       name: candidateName1.current.value,
       url: candidateName1URL.current.value,
@@ -31,8 +36,8 @@ const NewPoll = (props) => {
     });
 
     await window.contract.addToPromptArray({ prompt: promptRef.current.value });
-
-    alert("head back to home page");
+    toast.success("head back to home page");
+    setIsLoading(false);
   };
 
   return (
@@ -85,10 +90,21 @@ const NewPoll = (props) => {
             <input type="text" id="Prompt" ref={promptRef} required />
           </div>
           <div className="form-flex">
-            <button class="form-button">Create</button>
+            <button
+              onClick={sendToBlockChain}
+              disabled={disableButton}
+              class="form-button"
+            >
+              {isLoading ? (
+                <img src={eclipse} alt="loading" className="loading" />
+              ) : (
+                <span>Submit</span>
+              )}
+            </button>
           </div>
         </form>
       </div>
+      <Toaster position="top-center" reverseOrder={false} />
     </div>
   );
 };
