@@ -1,5 +1,5 @@
 import React, { useRef, useState } from "react";
-import { Container, Form, Button } from "react-bootstrap";
+import Glow from "../assets/Glow.png";
 
 const NewPoll = (props) => {
   const candidateName1 = useRef();
@@ -36,54 +36,60 @@ const NewPoll = (props) => {
   };
 
   return (
-    <Container style={{ marginTop: "10px" }}>
-      <Form>
-        <Form.Group className='mb-3'>
-          <Form.Label>Candidiate 1 Name</Form.Label>
-          <Form.Control
-            ref={candidateName1}
-            placeholder='Enter Candidate Name'
-          ></Form.Control>
-        </Form.Group>
+    <div className="new-poll">
+      <img src={Glow} alt="logo" className="bg" />
+      <div className="poll-form">
+        <h1 className="poll-form-title">Create a New Poll</h1>
+        <form>
+          <div className="form-flex">
+            <label htmlFor="Candidate 1 Name">Candidate 1 Name</label>
+            <input
+              type="text"
+              id="Candidate 1 Name"
+              ref={candidateName1}
+              required
+            />
+          </div>
+          <div className="form-flex">
+            <label htmlFor="Candidate 1 URL">Candidate 1 URL</label>
+            <input
+              type="text"
+              id="Candidate 1 URL"
+              ref={candidateName1URL}
+              required
+            />
+          </div>
+          <div className="form-flex">
+            <label htmlFor="Candidate 2 Name">Candidate 2 Name</label>
+            <input
+              type="text"
+              id="Candidate 2 Name"
+              ref={candidateName2}
+              required
+            />
+          </div>
 
-        <Form.Group className='mb-3'>
-          <Form.Label>Candidate 1 Image URL</Form.Label>
-          <Form.Control
-            ref={candidateName1URL}
-            placeholder='enter Image URL'
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group className='mb-3'>
-          <Form.Label>Candidiate 2 Name</Form.Label>
-          <Form.Control
-            ref={candidateName2}
-            placeholder='Enter Candidate Name'
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group className='mb-3'>
-          <Form.Label>Candidate 2 Image URL</Form.Label>
-          <Form.Control
-            ref={candidateName2URL}
-            placeholder='enter Image URL'
-          ></Form.Control>
-        </Form.Group>
-
-        <Form.Group className='mb-3'>
-          <Form.Label>Prompt</Form.Label>
-          <Form.Control ref={promptRef} placeholder='Add Prompt'></Form.Control>
-        </Form.Group>
-      </Form>
-
-      <Button
-        disabled={disableButton}
-        onClick={sendToBlockChain}
-        variant='primary'
-      >
-        Submit
-      </Button>
-    </Container>
+          <div className="form-flex">
+            <label htmlFor="Candidate 2 URL">Candidate 2 URL</label>
+            <input
+              type="text"
+              id="Candidate 2 URL"
+              ref={candidateName2URL}
+              required
+            />
+          </div>
+          <div className="form-flex">
+            <label htmlFor="Prompt">Prompt</label>
+            <input type="text" id="Prompt" ref={promptRef} required />
+          </div>
+          <div className="form-flex button-grid">
+            <div class="buttons-grid-item">
+              <button class="gradient-button gradient-button-6">Button</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   );
 };
 
